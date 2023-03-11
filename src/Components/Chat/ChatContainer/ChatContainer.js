@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 import "./ChatContainer.css";
-import FriendList from "../FriendList";
-import UserChat from "../UserChat";
+import FriendList from "../FriendListContainer/FriendList";
+import UserChat from "../UserChat/UserChat";
 import background from "../../../Images/background.jpg";
 
 const ChatContainer = () => {
@@ -71,12 +71,10 @@ const ChatContainer = () => {
 
     return (
         <div className="chatContainer" style={{ backgroundImage: `url(${background})` }}>
-            {/* <ChatInput sendMessage={sendMessage} />
-            <br />
-            <ChatWindow chat={chat} /> */}
 
             <FriendList />
             <UserChat />
+
         </div>
     );
 };

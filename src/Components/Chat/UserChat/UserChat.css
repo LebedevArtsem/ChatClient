@@ -1,0 +1,125 @@
+.userChat {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-template-rows: 8% 80% 8%;
+}
+
+.userChatContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.chatBar {
+    background-color: #1F1D1D;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.specialButtons {
+    margin-right: 10px;
+}
+
+.specialButton {
+    background-color: #1F1D1D;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.specialButtonImg {
+    width: 40px;
+    height: 40px;
+}
+
+.chatInput {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.inputMessage {
+    height: 45px;
+
+    /* height: 50%; */
+    width: 97%;
+    border-radius: 15px;
+    margin: 3px 3px 3px 10px;
+    background-color: #312F2F;
+    font-size: 1rem;
+    padding: 3px;
+    padding-left: 7px;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.inputButton {
+    right: 0;
+    position: absolute;
+    border: none;
+    height: 50px;
+    width: 45px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    /* border-radius: 50%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #312F2F;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.inputButtonImg {
+    width: 30px;
+    height: 30px;
+}
+
+.chatBody {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: end;
+    height: 77%;
+}
+
+.time {
+    margin-top: 10px;
+    align-self: center;
+    color: white;
+    background: #312F2F;
+    border-radius: 15px;
+    padding: 5px;
+    opacity: 0.75;
+}
+
+.messageContainer {
+    border-radius: 15px;
+    background: #312F2F;
+    color: white;
+    display: inherit;
+    padding: 10px;
+    box-shadow: 3px 3px 3px black;
+    margin-top: 5px;
+    font-size: 600;
+}
+
+.myMessage {
+    align-self: flex-end;
+    background: rgb(68, 131, 152);
+}
+
+.userMessage {
+    align-self: flex-start;
+}

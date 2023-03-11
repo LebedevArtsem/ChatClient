@@ -1,0 +1,82 @@
+.friendListContainer {
+    min-width: 170px;
+    padding: 0 15px;
+    padding-top: 13px;
+    background-color: #1F1D1D;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-wrapper {
+    border-radius: 7px;
+    padding-left: 10px;
+    display: flex;
+    background: #312F2F;
+}
+
+.search-icon-wrapper {
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    transform: scale(-1, 1);
+}
+
+.searchPanel {
+
+    width: 100%;
+    height: 37px;
+    padding-left: 10px;
+    border-radius: 7px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    font-size: 1.2rem;
+    outline: none;
+    background: #312F2F;
+    border: none;
+    color: #fff;
+}
+
+.friendList {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user {
+    height: 50px;
+    width: 100%;
+    background: #312F2F;
+    border-radius: 10px;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user:hover {
+    transition-duration: 150ms;
+    background-color: #1d1a1a;
+}
+
+.photo {
+    height: 35px;
+    width: 35px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.listPhoto {
+    margin: 7px 7px 7px 12px;
+}
+
+.userName {
+    color: white;
+    font-size: medium;
+    margin-left: 5px;
+    font-weight: 500;
+}
