@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, createContext } from "react";
 import { HubConnectionBuilder } from "@microsoft/signalr";
 import "./ChatContainer.css";
 import FriendList from "../FriendListContainer/FriendList";
 import UserChat from "../UserChat/UserChat";
 import background from "../../../Images/background.jpg";
 
+export const UserContext = createContext();
+
 const ChatContainer = () => {
     const [connection, setConnection] = useState(null);
     const [chat, setChat] = useState([]);
     const latestChat = useRef(null);
-
 
     latestChat.current = chat;
 
@@ -71,12 +72,16 @@ const ChatContainer = () => {
 
     return (
         <div className="chatContainer" style={{ backgroundImage: `url(${background})` }}>
+            <UserContext.Provider value={"user"}>
 
-            <FriendList />
-            <UserChat />
+                <FriendList />
 
+                <UserChat />
+
+            </UserContext.Provider>
         </div>
     );
 };
 
 export default ChatContainer;
+

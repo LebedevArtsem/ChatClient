@@ -3,7 +3,8 @@ import React from "react";
 import videocall from "../../../Images/videocall.png";
 import phonecall from "../../../Images/phonecall.png";
 
-const ChatBar = () => {
+const ChatBar = ({ username, isOnline }) => {
+
     return (
         <div className="chatBar">
             <div className="profile">
@@ -11,9 +12,14 @@ const ChatBar = () => {
                 <div className="photo">
                     <img src="" alt=""></img>
                 </div>
-                <div className="userName">
-                    <p>Artem Lebedev</p>
-                    <p style={{ color: "#21FF5F" }}>Online</p>
+                <div className="userInformation">
+                    <p>{username}</p>
+                    {
+                        isOnline ?
+                            <p style={{ color: "#21FF5F" }}>Online</p> :
+                            <p style={{ color: "#6e6e6e" }}>Offline</p>
+                    }
+
                 </div>
             </div>
             <div className="specialButtons">

@@ -18,7 +18,7 @@ const ChatBody = () => {
                 Hi,Artem
             </div>
             <div className="messageContainer userMessage">
-                Hi,Artem
+                Hi,Artemasdfasdfasfasfd
             </div>
             <div className="messageContainer userMessage">
                 Hi,Artem

@@ -47,7 +47,7 @@
     align-items: center;
 }
 
-.user {
+.friendItem {
     height: 50px;
     width: 100%;
     background: #312F2F;
@@ -58,7 +58,12 @@
     cursor: pointer;
 }
 
-.user:hover {
+.friendItemActive {
+    background: #fff;
+
+}
+
+.friendItem:hover {
     transition-duration: 150ms;
     background-color: #1d1a1a;
 }
@@ -74,7 +79,7 @@
     margin: 7px 7px 7px 12px;
 }
 
-.userName {
+.userInformation {
     color: white;
     font-size: medium;
     margin-left: 5px;

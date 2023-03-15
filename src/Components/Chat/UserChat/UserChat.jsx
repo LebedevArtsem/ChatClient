@@ -7,9 +7,12 @@ import ChatInput from "./ChatInput";
 import "./UserChat.css"
 
 const UserChat = () => {
+
+
+
     return (
         <div className="userChat">
-            <ChatBar />
+            <ChatBar username={"Andrei Lebedev"} isOnline={false} />
 
             <div className="userChatContainer">
 

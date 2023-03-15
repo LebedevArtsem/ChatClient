@@ -1,39 +1,26 @@
-import React from "react";
-import avatar from "../../../Images/avatar.png";
+import React, { createContext } from "react";
+import FriendItem from "./FriendItem";
 import search from "../../../Images/search-icon.png";
 
 import "./FriendList.css"
+import { UserContext } from "../ChatContainer/ChatContainer";
 
 const FriendList = () => {
     return (
-        <div className="friendListContainer">
-            <div className="search-wrapper">
-                <img className="search-icon-wrapper" src={search} alt="" />
-                <input className="searchPanel" placeholder="Search..." />
-            </div>
-            <div className="friendList">
-                <div className="user">
-                    <div className="photo listPhoto">
-                        <img className="photo" src={avatar} alt="" />
-                    </div>
-                    <div className="userName">
-                        <p className="text">Artem</p>
-                        <p className="text">Hi</p>
-                    </div>
-                </div>
-                <div className="user">
-                    <div className="photo listPhoto">
-                        <img className="photo" src={avatar} alt="" />
-                    </div>
-                    <div>
-                        <div className="userName">
-                            <p className="text">Andrei</p>
-                            <p className="text">Hi</p>
+        <UserContext.Consumer>
+            {
+                theme => (
+                    <div className="friendListContainer">
+                        <div className="search-wrapper">
+                            <img className="search-icon-wrapper" src={search} alt="" />
+                            <input className="searchPanel" placeholder="Search..." />
                         </div>
+                        <FriendItem username={"Andrei Lebedev"} lastMessage={"Hi"} />
+                        <FriendItem username={"Lionel Messi"} lastMessage={"Hi"} />
                     </div>
-                </div>
-            </div>
-        </div>
+                )}
+        </UserContext.Consumer>
+
     );
 };
 
