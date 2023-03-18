@@ -9,18 +9,19 @@
     align-items: center;
 }
 
-.search-wrapper {
+.searchWrapper {
     border-radius: 7px;
     padding-left: 10px;
     display: flex;
     background: #312F2F;
 }
 
-.search-icon-wrapper {
+.searchIconWrapper {
     width: 20px;
     height: 20px;
     align-self: center;
     transform: scale(-1, 1);
+    cursor: pointer;
 }
 
 .searchPanel {

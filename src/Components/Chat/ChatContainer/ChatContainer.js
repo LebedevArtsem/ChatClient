@@ -4,6 +4,7 @@ import "./ChatContainer.css";
 import FriendList from "../FriendListContainer/FriendList";
 import UserChat from "../UserChat/UserChat";
 import background from "../../../Images/background.jpg";
+import jwtInterceptor from "../../../setAuthToken"
 
 export const UserContext = createContext();
 
@@ -11,6 +12,7 @@ const ChatContainer = () => {
     const [connection, setConnection] = useState(null);
     const [chat, setChat] = useState([]);
     const latestChat = useRef(null);
+    const [friends, setFriends] = useState([])
 
     latestChat.current = chat;
 
@@ -53,6 +55,17 @@ const ChatContainer = () => {
         initConnection();
     }, [initConnection]);
 
+
+    const initFriendList = useCallback(async () => {
+        let temp = await jwtInterceptor.get('https://localhost:5001/api/chat/friends');
+        setFriends(temp.data);
+    }, [setFriends]);
+
+    useEffect(() => {
+        initFriendList();
+    }, [initFriendList]);
+
+
     const sendMessage = async (message, connectionId) => {
 
         try {
@@ -72,7 +85,7 @@ const ChatContainer = () => {
 
     return (
         <div className="chatContainer" style={{ backgroundImage: `url(${background})` }}>
-            <UserContext.Provider value={"user"}>
+            <UserContext.Provider value={friends}>
 
                 <FriendList />
 

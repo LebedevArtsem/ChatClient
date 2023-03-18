@@ -12,7 +12,7 @@ const UserChat = () => {
 
     return (
         <div className="userChat">
-            <ChatBar username={"Andrei Lebedev"} isOnline={false} />
+            <ChatBar username={"Andrei Lebedev"} isOnline={true} />
 
             <div className="userChatContainer">
 
