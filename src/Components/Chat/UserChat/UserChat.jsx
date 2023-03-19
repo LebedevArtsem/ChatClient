@@ -1,25 +1,26 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { UserContext } from "../ChatContainer/ChatContainer";
 import ChatBar from "./ChatBar";
-import ChatBody from "./ChatBody";
-import ChatInput from "./ChatInput";
+import UserChatContainer from "./UserChatContainer/UserChatContainer";
 
-import "./UserChat.css"
+import "./UserChat.css";
 
 const UserChat = () => {
 
-
+    const userFriend = useContext(UserContext);
 
     return (
-        <div className="userChat">
-            <ChatBar username={"Andrei Lebedev"} isOnline={true} />
+        <div className={`userChat ${userFriend.friend && "userDefine"}`}>
+            {userFriend.friend ?
+                <>
+                    <ChatBar user={userFriend.friend} isOnline={true} />
 
-            <div className="userChatContainer">
-
-                <ChatBody />
-
-                <ChatInput />
-            </div>
+                    <UserChatContainer />
+                </>
+                :
+                <div className="undefinedUser">
+                    <p className="undefinedUserText">Select a chat to start messaging</p>
+                </div>}
         </div>
     );
 };

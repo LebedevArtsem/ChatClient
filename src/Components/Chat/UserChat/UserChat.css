@@ -1,8 +1,10 @@
 .userChat {
     width: 100%;
     display: flex;
+}
+
+.userDefine {
     flex-direction: column;
-    grid-template-rows: 8% 80% 8%;
 }
 
 .userChatContainer {
@@ -123,4 +125,20 @@
 
 .userMessage {
     align-self: flex-start;
+}
+
+.undefinedUser {
+    color: white;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.undefinedUserText {
+    background: #312F2F;
+    padding: 5px;
+    border-radius: 10px;
+    opacity: 0.8;
+    cursor: default;
 }

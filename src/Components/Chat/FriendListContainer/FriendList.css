@@ -69,6 +69,10 @@
     background-color: #1d1a1a;
 }
 
+.active {
+    background-color: rgb(54, 86, 86);
+}
+
 .photo {
     height: 35px;
     width: 35px;

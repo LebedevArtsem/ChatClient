@@ -1,30 +1,23 @@
-import React, { useContext } from "react";
+import React from "react";
 import FriendItem from "./FriendItem";
 import search from "../../../Images/search-icon.png";
 
 import "./FriendList.css"
-import { UserContext } from "../ChatContainer/ChatContainer";
 
-const FriendList = () => {
+const FriendList = ({ friends }) => {
 
     return (
-        <UserContext.Consumer>
+        <div className="friendListContainer">
+            <div className="searchWrapper">
+                <img className="searchIconWrapper" src={search} alt="" />
+                <input className="searchPanel" placeholder="Search..." />
+            </div>
             {
-                friends => (
-                    <div className="friendListContainer">
-                        <div className="searchWrapper">
-                            <img className="searchIconWrapper" src={search} alt="" />
-                            <input className="searchPanel" placeholder="Search..." />
-                        </div>
-                        {
-                            friends.map((user) => {
-                                return <FriendItem key={user.friendEmail} username={user.name} lastMessage={"Hi"} />
-                            })
-                        }
-                    </div>
-                )}
-        </UserContext.Consumer>
-
+                friends.map((user) => {
+                    return <FriendItem key={user.friendEmail} user={user} lastMessage={"Hi"} />
+                })
+            }
+        </div>
     );
 };
 
