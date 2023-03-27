@@ -1,6 +1,7 @@
 import { React, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import jwt from "jwt-decode";
+import logo from '../../Images/logo1.png';
 
 import "./NavigationBar.css"
 
@@ -32,7 +33,7 @@ const NavigationBar = () => {
     return (
         <>
             <nav>
-                <Link href="/chat">Chat</Link>
+                <img src={logo} alt="" className="logo" />
                 <div>
                     <div>
                         {GetUser() ? <p>{GetUser()}</p> : <p>Guest</p>}

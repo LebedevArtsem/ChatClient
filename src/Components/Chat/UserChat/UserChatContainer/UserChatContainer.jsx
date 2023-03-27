@@ -86,9 +86,9 @@ const UserChatContainer = () => {
     return (
         <div className="userChatContainer">
 
-            <ChatBody chat={chat} />
+            {/* <ChatBody chat={chat} /> */}
 
-            <ChatInput sendMessage={sendMessage} />
+            {/* <ChatInput sendMessage={sendMessage} /> */}
 
         </div>
     );

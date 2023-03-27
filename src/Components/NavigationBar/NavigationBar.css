@@ -9,13 +9,10 @@ nav {
     background-color: #1F1D1D;
 }
 
-nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 0px 10px;
-    margin-left: 100px;
+nav img {
+    width: 84px;
+    margin-left: 35px;
+    cursor: pointer;
 }
 
 nav div {

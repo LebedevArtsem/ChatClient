@@ -1,6 +1,6 @@
 .signInUpContainer {
     display: grid;
-    background-color: #a5b7b7;
+    background-color: #312F2F;
     grid-template-columns: 70% 30% 0%;
     width: 65%;
     height: 550px;
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #00CED1;
+    background-color: #1F1D1D;
     justify-content: center;
     background-position: center;
 }
