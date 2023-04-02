@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../ChatContainer/ChatContainer";
 import avatar from "../../../Images/avatar.png";
 
-const FriendItem = ({ user, lastMessage }) => {
+const FriendItem = ({ user }) => {
 
     const [active, setActive] = useState(false);
 
@@ -19,7 +19,6 @@ const FriendItem = ({ user, lastMessage }) => {
             </div>
             <div className="userInformation">
                 <p>{user.name}</p>
-                <p>{lastMessage}</p>
             </div>
         </div >
     );

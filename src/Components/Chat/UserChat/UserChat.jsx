@@ -85,12 +85,10 @@ const UserChat = () => {
         if (connection) {
 
             connection.on("OnConnected", (users) => {
-                console.log(users);
                 setOnlineFriends(users);
             })
 
             connection.on("OnDisconnected", (users) => {
-                console.log(users);
                 setOnlineFriends(users);
             })
         }
