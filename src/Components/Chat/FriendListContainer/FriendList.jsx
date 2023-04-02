@@ -12,7 +12,6 @@ const FriendList = ({ friends, setFriendList }) => {
 
         let temp = await jwtInterceptor.get(`https://localhost:5001/api/chat/find-friends?key=${valueSearch}`);
         setFriendList(temp.data);
-
     }, [valueSearch, setFriendList]);
 
     useEffect(() => {

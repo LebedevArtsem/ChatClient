@@ -1,7 +1,6 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../ChatContainer/ChatContainer";
 import ChatBar from "./ChatBar";
-import UserChatContainer from "./UserChatContainer/UserChatContainer";
 import ChatInput from "./UserChatContainer/ChatInput";
 import "./UserChat.css";
 import ChatBody from "./UserChatContainer/ChatBody";
@@ -12,11 +11,11 @@ const UserChat = () => {
 
     const userFriend = useContext(UserContext);
     const [connection, setConnection] = useState(null);
+    const [onlineFriends, setOnlineFriends] = useState([]);
     const [chat, setChat] = useState([]);
     const latestChat = useRef(null);
 
     const friend = useContext(UserContext).friend;
-
     latestChat.current = chat;
 
     useEffect(() => {
@@ -29,7 +28,9 @@ const UserChat = () => {
             .withAutomaticReconnect()
             .build();
 
+
         setConnection(newConnection);
+
     }, []);
 
     const initConnection = useCallback(async () => {
@@ -39,23 +40,26 @@ const UserChat = () => {
                 await connection.start();
                 console.log("Connected");
 
-                connection.on("sendtochat", message => {
+                connection.on("sendtochatasync", message => {
                     const updatedChat = [...latestChat.current];
                     updatedChat.push(message);
 
                     setChat(updatedChat);
                 });
+
+
             }
             catch (e) {
                 console.log("Connection failed", e)
             }
-
         }
     }, [connection, setChat]);
 
     const initChatHistory = useCallback(async () => {
-        let history = await jwtInterceptor.get(`https://localhost:5001/api/chat/message-history?friendEmail=${friend.friendEmail}`);
-        setChat(history.data);
+        if (friend !== undefined) {
+            let history = await jwtInterceptor.get(`https://localhost:5001/api/chat/message-history?friendEmail=${friend.friendEmail}`);
+            setChat(history.data);
+        }
     }, [setChat, friend]);
 
     useEffect(() => {
@@ -66,6 +70,36 @@ const UserChat = () => {
         initConnection();
     }, [initConnection]);
 
+    useEffect(() => {
+
+        return (async () => {
+            if (localStorage.getItem("access_token") === null) {
+                console.log(connection);
+                connection.stop();
+            }
+        });
+
+    }, [connection, localStorage])
+
+    const initOnlineFriends = useCallback(async () => {
+        if (connection) {
+
+            connection.on("OnConnected", (users) => {
+                console.log(users);
+                setOnlineFriends(users);
+            })
+
+            connection.on("OnDisconnected", (users) => {
+                console.log(users);
+                setOnlineFriends(users);
+            })
+        }
+    }, [connection, setOnlineFriends]);
+
+    useEffect(() => {
+        initOnlineFriends();
+    }, [connection, initOnlineFriends]);
+
     const sendMessage = async (message, sendedUser, recievedUser) => {
         const chatMessage = {
             sendedUser: sendedUser,
@@ -74,7 +108,7 @@ const UserChat = () => {
         };
 
         try {
-            await connection.invoke('sendtochat', chatMessage);
+            await connection.invoke('sendtochatasync', chatMessage);
 
             const updatedChat = [...latestChat.current];
             updatedChat.push(chatMessage);
@@ -88,11 +122,20 @@ const UserChat = () => {
     }
 
 
+    const isUserOnline = () => {
+        if (onlineFriends.includes(userFriend.friend.friendEmail)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     return (
         <div className={`userChat ${userFriend.friend && "userDefine"}`}>
             {userFriend.friend ?
                 <>
-                    <ChatBar user={userFriend.friend} isOnline={true} />
+                    <ChatBar user={userFriend.friend} isOnline={isUserOnline} />
                     <div className="userChatContainer">
                         <ChatBody chat={chat} />
                     </div>

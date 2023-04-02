@@ -1,9 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import videocall from "../../../Images/videocall.png";
 import phonecall from "../../../Images/phonecall.png";
 
 const ChatBar = ({ user, isOnline }) => {
+
+    const onlineFriend = isOnline();
 
     return (
         <div className="chatBar">
@@ -15,7 +17,7 @@ const ChatBar = ({ user, isOnline }) => {
                 <div className="userInformation">
                     <p>{user ? user.name : ""}</p>
                     {
-                        isOnline ?
+                        onlineFriend ?
                             <p style={{ color: "#21FF5F" }}>Online</p> :
                             <p style={{ color: "#6e6e6e" }}>Offline</p>
                     }

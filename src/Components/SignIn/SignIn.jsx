@@ -5,8 +5,8 @@ import './SignIn.css';
 
 const SignIn = () => {
 
-    const [email, setEmail] = useState('a@mail.ru');
-    const [password, setPassword] = useState('1');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     let navigate = useNavigate();
     const RouteNavigate = () => {

@@ -20,12 +20,14 @@ const NavigationBar = () => {
     }
 
     const SignOut = () => {
-        //setToken(null);
+
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
+
     }
 
     let navigate = useNavigate();
+
     const RouteNavigate = () => {
         navigate('/login');
     }

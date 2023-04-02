@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<SignInUpContainer />} />
         <Route path="/chat" element={<NavigationBar />}>
-          <Route index element={<WithAuth ><ChatContainer /></WithAuth>} />
+          <Route index element={<WithAuth><ChatContainer /></WithAuth>} />
         </Route>
         <Route path="*" element={<Navigate to='/chat' />} />
       </Routes>

@@ -16,15 +16,6 @@ const ChatContainer = () => {
     const value = useMemo(
         () => ({ friend, setFriend }), [friend]);
 
-    // const initFriendList = useCallback(async () => {
-    //     let temp = await jwtInterceptor.get('https://localhost:5001/api/chat/friends');
-    //     setFriendList(temp.data);
-    // }, [setFriendList]);
-
-    // useEffect(() => {
-    //     initFriendList()
-    // }, [initFriendList]);
-
     return (
         <div className="chatContainer" style={{ backgroundImage: `url(${background})` }}>
             <UserContext.Provider value={value}>
