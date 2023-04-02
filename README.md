@@ -15,6 +15,8 @@ This is sign in page:
 This is sign up page: 
 ![image](https://user-images.githubusercontent.com/68590498/225331862-0c5cba03-db04-4a35-ad0b-8d00f6d1f160.png)
 
-This main chat:
-![image](https://user-images.githubusercontent.com/68590498/225331198-0594b061-0e29-4841-ab0a-47a75cece1ed.png)
+The chat when you choose user:
+![image](https://user-images.githubusercontent.com/68590498/229367151-e83f6aad-dc2f-4649-bfc6-b1f16b485c28.png)
 
+The Chat when you open it:
+![image](https://user-images.githubusercontent.com/68590498/229367289-1838a43d-c4f8-4eb2-8072-7119c6cc0d3b.png)
